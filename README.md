@@ -48,9 +48,8 @@ Or install as `.skill` files via the OpenCode skill manager.
 ## Where the Skills Read From
 
 ```
-LLM Wiki KB (external, read-only)
-  D:\LLM WIKI\Minecraft-neoforge-new-Version\
-  ├── wiki/index.md           ← Pattern quick-reference (read first on every query)
+<KB_PATH>/ (portable, per-project — default: <project-root>/kb/)
+├── wiki/index.md           ← Pattern quick-reference (read first on every query)
   ├── wiki/01-foundation/     ← @Mod entry, config, creative tabs
   ├── wiki/02-blocks/         ← Blocks with/without BlockEntity
   ├── wiki/03-energy/         ← Energy generators, consumers, variants
