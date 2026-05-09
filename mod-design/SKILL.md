@@ -11,8 +11,10 @@ Transform a user's mod feature request into a complete design document, informed
 
 ## KB_PATH
 ```
-Default: D:\LLM WIKI\Minecraft-neoforge-new-Version\
-If not found: ask user for path, save response.
+The LLM Wiki knowledge base. Searched in order:
+  1. <project-root>/kb/              ← Preferred: portable, per-project
+  2. Ask user once, save to kb/.kb_path
+If neither exists, ask the user where the KB is located.
 ```
 
 ## Before Anything: Learn the KB

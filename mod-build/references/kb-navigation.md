@@ -3,7 +3,7 @@
 ## Architecture
 
 ```
-KB_PATH/
+<KB_PATH>/
 ├── wiki/            ← LLM-maintained pattern library (READ this)
 │   ├── index.md     ← START HERE: task → pattern quick-reference
 │   ├── 01-foundation/ through 14-datagen/  ← pattern files

@@ -24,7 +24,7 @@ The KB gets smarter. The next feature takes half the time.
 
 ## Prerequisites
 
-- **LLM Wiki KB**: A NeoForge knowledge base built on the [Karpathy LLM Wiki pattern](https://karpathy-wiki.lol/en). Default path `D:\LLM WIKI\Minecraft-neoforge-new-Version\`. The skills auto-detect and fall back to asking the user.
+- **LLM Wiki KB**: A NeoForge knowledge base built on the [Karpathy LLM Wiki pattern](https://karpathy-wiki.lol/en). Place it at `<project-root>/kb/` (portable, per-project). The skills auto-detect and fall back to asking the user.
 - **JDK 21 + Gradle**: For building the mod.
 - **Python 3**: For texture generation (`gen_textures.py` in `mod-build/scripts/`).
 - **Blockbench** (optional): Only needed for Tier 2 complex block models (≥5 cubes). The MCP tool `ashfox-blockbench_*` is detected automatically.
