@@ -17,10 +17,10 @@ The KB gets smarter. The next feature takes half the time.
 
 ## Skills
 
-| Skill | Purpose | Triggers When |
-|-------|---------|---------------|
-| `mod-design` | Research KB, select patterns, write design docs | "设计一个XXX", "帮我规划 mod 功能" |
-| `mod-build` | Generate code, textures, models; compile; feedback KB | "实现XXX", "按设计文档写代码" |
+| Skill        | Purpose                                               | Triggers When            |
+| ------------ | ----------------------------------------------------- | ------------------------ |
+| `mod-design` | Research KB, select patterns, write design docs       | "设计一个XXX", "帮我规划 mod 功能" |
+| `mod-build`  | Generate code, textures, models; compile; feedback KB | "实现XXX", "按设计文档写代码"      |
 
 ## Prerequisites
 
@@ -97,6 +97,7 @@ Agent: (mod-build triggers)
 ## What's Inside
 
 ### mod-design/
+
 ```
 mod-design/
 ├── SKILL.md                          # 140 lines: 4-stage workflow with ✋ checkpoints
@@ -106,6 +107,7 @@ mod-design/
 ```
 
 ### mod-build/
+
 ```
 mod-build/
 ├── SKILL.md                          # 230 lines: 5-stage workflow (code→resources→build→fileback)
@@ -121,26 +123,23 @@ mod-build/
 ## Key Design Decisions
 
 ### Why two skills, not one?
+
 Design and implementation are different mental modes. Design needs user interaction and pattern discovery. Implementation is systematic code generation. Splitting them lets each skill be concise (~150 lines vs ~400 lines), which means better triggering accuracy and less token waste.
 
 ### Why is FILE BACK part of mod-build, not a separate skill?
+
 FILE BACK only ever runs after BUILD SUCCESS, which only happens in mod-build. It's the last stage of implementation, not an independent workflow.
 
 ### Why not bundle the LLM Wiki KB?
+
 The KB is 13,000 files / 135MB — a full knowledge base with 9 mod reference sources. Embedding it would make the skill unmanageable. Instead, the skill references it by configurable path, falling back to asking the user.
 
 ### Where does the texture generator come from?
-`gen_textures.py` is the actual Python script used to generate all textures for SolarMod. It uses a 3-layer architecture: material functions (Level 1) → UV atlas layout (Level 2) → model binding (Level 3). Bundled in `mod-build/scripts/` so it's portable across machines.
 
-## Proven Results
+`gen_textures.py` is the actual Python script used to generate all textures for SolarMod. It uses a 3-layer architecture: material functions (Level 1) → UV atlas layout (Level 2) → model binding (Level 3). Bundled in `mod-build/scripts/` so it's portable across machines. 
 
-During development, these skills (then as manual workflow) produced:
 
-| Feature | KB queries | Compile errors | Time to BUILD SUCCESS | Pattern reuse |
-|---------|-----------|----------------|----------------------|---------------|
-| Wind Turbine (before skills) | 10+ / 4 agents | 2 | ~60 min | ~60% |
-| Geothermal Generator (after skills) | 2 | 0 | ~10 min | ~90% |
 
 ## License
 
-MIT — same as SolarMod.
+MIT 
